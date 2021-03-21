@@ -1,0 +1,28 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #363636;
+}
+
+.App {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  margin: 2rem 4rem 0 4rem;
+}
+
+.TaskForm{
+  background-color: #464646;
+}
+
+.Tasks{
+  background-color: #464646;
+}
