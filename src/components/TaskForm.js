@@ -1,42 +1,41 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import '../styles/styles.css'
+import "../styles/styles.css";
 
 export default class TaskForm extends Component {
 
   state = {
     title: "",
-    description: ""
-  }
+    description: "",
+  };
 
-
-  onSubmit = event => {
+  onSubmit = (event) => {
     event.preventDefault();
     this.props.addTask(this.state.title, this.state.description);
     this.setState({
       title: "",
-      description: ""
-    })
-  }
+      description: "",
+    });
+  };
 
-  onChange = event => {
+  onChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
+      [event.target.name]: event.target.value,
+    });
+  };
 
   render() {
     return (
-      <form className="TaskForm p-3" onSubmit={this.onSubmit} >
+      <form className="TaskForm p-3" onSubmit={this.onSubmit}>
         <div className="container">
           <div className="row">
-            <div className="col-md-4">
-
+			  
+            <div className="col-sm">
               <label
                 className="text-white form-label d-flex justify-content-start"
                 htmlFor="title"
               >
-                Name
+                Nombre
               </label>
               <input
                 type="text"
@@ -45,15 +44,14 @@ export default class TaskForm extends Component {
                 onChange={this.onChange}
                 value={this.state.title}
               />
-
             </div>
-            <div className="col-md-4">
-
+            
+			<div className="col-sm">
               <label
                 className="text-white form-label d-flex justify-content-start"
                 htmlFor="description"
               >
-                Description
+                Descripcion
               </label>
               <input
                 type="text"
@@ -62,19 +60,17 @@ export default class TaskForm extends Component {
                 onChange={this.onChange}
                 value={this.state.description}
               />
-
             </div>
-            <div className="col-md-4 d-flex align-items-end justify-content-end">
-              <button
-                type="submit"
-                class="btn btn-warning"
-              >
-                ADD TODO
+          
+		    <div className="col-sm d-flex align-items-end justify-content-end">
+              <button type="submit" className="btn btn-warning mt-3">
+                AGREGAR TAREA
               </button>
             </div>
-          </div>
+          
+		  </div>
         </div>
-      </form >
-    )
+      </form>
+    );
   }
 }

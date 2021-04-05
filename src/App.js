@@ -8,14 +8,14 @@ class App extends Component {
     tasks: [
       {
         id: 0,
-        title: "Task 1",
-        description: "This is my task one",
+        title: "Tarea 1",
+        description: "Esta es la tarea a realizar numero 1",
         done: true
       },
       {
         id: 1,
-        title: "Task 1",
-        description: "This is my task one",
+        title: "Tarea 2",
+        description: "Esta es la tarea a realizar numero 2",
         done: false
       }
     ]
@@ -53,13 +53,17 @@ class App extends Component {
   render() {
     return (
       <div className="m-5 text-center">
-        <h1 className="text-white">My Todos</h1>
+
+        <h1 className="text-white">Lista de tareas</h1>
+
         <TaskForm addTask={this.addTask} />
+		
         <Tasks
           tasks={this.state.tasks}
           deleteTask={this.deleteTask}
           completeTask={this.completeTask}
         />
+
       </div>
     )
   }
