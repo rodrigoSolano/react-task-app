@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import "../styles/styles.css";
 
 export default class TaskForm extends Component {
-
   state = {
     title: "",
     description: "",
@@ -11,6 +10,9 @@ export default class TaskForm extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
+    if (this.state.title == "" && this.state.description == "") {
+      return;
+    }
     this.props.addTask(this.state.title, this.state.description);
     this.setState({
       title: "",
@@ -29,7 +31,6 @@ export default class TaskForm extends Component {
       <form className="TaskForm p-3" onSubmit={this.onSubmit}>
         <div className="container">
           <div className="row">
-			  
             <div className="col-sm">
               <label
                 className="text-white form-label d-flex justify-content-start"
@@ -45,8 +46,8 @@ export default class TaskForm extends Component {
                 value={this.state.title}
               />
             </div>
-            
-			<div className="col-sm">
+
+            <div className="col-sm">
               <label
                 className="text-white form-label d-flex justify-content-start"
                 htmlFor="description"
@@ -61,14 +62,13 @@ export default class TaskForm extends Component {
                 value={this.state.description}
               />
             </div>
-          
-		    <div className="col-sm d-flex align-items-end justify-content-end">
+
+            <div className="col-sm d-flex align-items-end justify-content-end">
               <button type="submit" className="btn btn-warning mt-3">
                 AGREGAR TAREA
               </button>
             </div>
-          
-		  </div>
+          </div>
         </div>
       </form>
     );
